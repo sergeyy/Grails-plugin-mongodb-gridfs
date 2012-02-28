@@ -1,4 +1,12 @@
-    <big>Adding the setting you're file path/to/app/grails-app/config/Config.groovy</big>
+   
+
+Install: 
+
+grails install-plugin mongodb-gridfs
+
+Configure:
+
+<big>Adding the setting you're file path/to/app/grails-app/config/Config.groovy</big>
 
     gridfsConfig.db.host = "localhost"                                             // host for mongodb
     gridfsConfig.db.name = "myGridfs"                                              // db name
@@ -47,7 +55,28 @@
     render(view:"index", model:[listFiles: list ]
     )
 
-    <big> Example gsp:</big>
+Using: 
+
+Example controller:
+
+  class TestController {
+
+    def index() {
+//get config
+    UserConfig gridfsConfig = new org.iglas.grails.utils.UserConfig("gridfsConfig")
+
+//set user seting
+    gridfsConfig.set([controllers:[successController: "test",successAction:"index"]])
+
+// using service 
+    def list =  new org.iglas.grails.gridfs.GridfsService().list([idparent: "myid",relative:true,icon:true])
+
+    render(view:"index", model:[listFiles: list ])
+        }
+    }
+
+
+     Example GSP:
 
     <gridfs:form idparent="myid" parentclass="user" accesspolitic="['public','private','hidden']"
                  errorAction="index" errorController="test"
