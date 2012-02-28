@@ -7,53 +7,64 @@ grails install-plugin mongodb-gridfs
 Configure:
 
 <big>Adding the setting you're file path/to/app/grails-app/config/Config.groovy</big>
+ // host for mongodb
+    gridfsConfig.db.host = "localhost"
+    // db name
+    gridfsConfig.db.name = "myGridfs"
+    // collections for files
+    gridfsConfig.db.collection = "files"
 
-    gridfsConfig.db.host = "localhost"                                             // host for mongodb
-    gridfsConfig.db.name = "myGridfs"                                              // db name
-    gridfsConfig.db.collection = "files"                                           // collections for files
+    // dir for icons
+    gridfsConfig.iconsdir = "images/icons"
+    // extensions  images for  thumbnail list
+    gridfsConfig.imagestype = ["jpg","gif","png","bmp"]
+    // allowedExtensions
+    gridfsConfig.allowedExtensions = ["jpg","gif","png","bmp","doc","rtf","zip"]
+    // tmp dir
+    gridfsConfig.tmpdir = "tmp/files"
+    // icon default
+    gridfsConfig.defaulticon = "images/icons/empty.png"
+    // file  iconconfig.groovy in images dir
+    // format Extension : filename
+    // Example:
+    //iconsOfExtension = [
+    //        pdf:"pdf.png",
+    //        doc:"word.png"]
 
-
-    gridfsConfig.iconsdir = "images/icons"                                      // dir for icons                                             // url prefix for files
-    gridfsConfig.imagestype = ["jpg","gif","png","bmp"]                            // extensions  images for  thumbs
-    gridfsConfig.allowedExtensions = ["jpg","gif","png","bmp","doc","rtf","zip"]  // allowedExtensions
-    gridfsConfig.tmpdir = "tmp/files"                                             // tmp dir
-    gridfsConfig.defaulticon = "images/icons/empty.png"                             // icon default
+    //template for dirs  users thumbnails files
     gridfsConfig.thumbconfig = [
-    publicdir:"tmp/imagesthumb/[idparent]",                 //template for dirs  users thumbnails files
+    publicdir:"tmp/imagesthumb/[idparent]",
     x_size:128,
     y_size:128
     ]
+
+    // max bites size
     gridfsConfig.maxSize = 2000000
-    gridfsConfig.controllers.errorController = "gridfs"                     // errors controller
+
+    // default errors controller
+    gridfsConfig.controllers.errorController = "gridfs"
     gridfsConfig.controllers.errorAction  = "help"
 
-    gridfsConfig.controllers.successRemoveController = "gridfs"             // controller for the success remove
+    // default controller for the success remove
+    gridfsConfig.controllers.successRemoveController = "gridfs"
     gridfsConfig.controllers.successRemoveAction = "help"
 
-    gridfsConfig.controllers.successController =  "gridfs"              // controller for the success upload
+    // default controller for the success upload
+    gridfsConfig.controllers.successController =  "gridfs"
     gridfsConfig.controllers.successAction  =  "help"
 
-    gridfsConfig.controllers.accessController =  "gridfs"              // controller for the access deny
-    gridfsConfig.controllers.accesssAction  =  "help"
+    // controller for the access deny
+    gridfsConfig.accessController =  "gridfs"
+    gridfsConfig.accesssAction  =  "help"
 
-    gridfsConfig.accessClass  =  "org.iglas.grails.utils.ExampleAccess"             //  class name  for access control
-    gridfsConfig.accessMethod  =  "check"                                           //  method name  for access control
+    //  class name  for access control
+    gridfsConfig.accessClass  =  "org.iglas.grails.utils.ExampleAccess"
+    //  method name  for access control
+    gridfsConfig.accessMethod  =  "check"
 
     gridfsConfig.indexes  = [
     "metadata.idparent":1,
     "metadata.parentclass":1]
-
-
-    <big>  Exsamle controler:</big>
-
-    class TestController {
-
-    def index() {
-    UserConfig gridfsConfig = new org.iglas.grails.utils.UserConfig("gridfsConfig")
-    gridfsConfig.set([controllers:[successController: "test",successAction:"index"]])
-    def list =  new org.iglas.grails.gridfs.GridfsService().list([idparent: "myid",relative:true,icon:true])
-    render(view:"index", model:[listFiles: list ]
-    )
 
 Using: 
 
