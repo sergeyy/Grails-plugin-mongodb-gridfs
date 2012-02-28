@@ -1,0 +1,46 @@
+<plugin name='mongodb-gridfs' version='0.4.beta' grailsVersion='2.0 &gt; *'>
+  <author>Sergei Yunzhakov</author>
+  <authorEmail>iglas.sys@@gmail.com</authorEmail>
+  <title>Mongodb Gridfs Plugin</title>
+  <description>                 The plugin includes can:
+                -- listing  files
+                -- upload files
+                -- download  files
+                -- remove  files
+                -- grouped files for a parents id
+                -- support  multi configure for level  a servletContext,   a user session,  a requests or  params
+                -- support  multi database
+                -- connect a control access
+                -- get of a user dir  icon for  a extension file
+                -- makes a thumbnails for images
+
+                Plugins in use:
+                -- mongodb
+                -- burning-image
+                </description>
+  <documentation>https://github.com/sergeyy/Grails-plugin-mongodb-gridfs/wiki</documentation>
+  <type>MongodbGridfsGrailsPlugin</type>
+  <resources>
+    <resource>org.iglas.grails.gridfs.GridfsController</resource>
+    <resource>org.iglas.grails.gridfs.GridfsService</resource>
+    <resource>org.iglas.grails.gridfs.UtilsService</resource>
+    <resource>org.iglas.grails.gridfs.GridfsTagLib</resource>
+    <resource>org.iglas.grails.utils.ExampleAccess</resource>
+    <resource>org.iglas.grails.utils.Gridfs</resource>
+    <resource>org.iglas.grails.utils.UserConfig</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins />
+  <runtimePluginRequirements>
+    <plugin name='mongodb' version='* &gt; 1.0.0.RC3' />
+    <plugin name='burning-image' version='* &gt; 0.5.0' />
+  </runtimePluginRequirements>
+  <behavior />
+</plugin>
