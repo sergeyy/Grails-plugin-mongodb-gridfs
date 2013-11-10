@@ -1,70 +1,68 @@
+### Installation: 
+
+`grails install-plugin mongodb-gridfs`
+
+### Configuration:
+
+Adding the setting you're file path/to/app/grails-app/config/Config.groovy
+   // host for mongodb
+   gridfsConfig.db.host = "localhost"
+   // db name
+   gridfsConfig.db.name = "myGridfs"
+   // collections for files
+   gridfsConfig.db.collection = "files"
    
-
-Install: 
-
-grails install-plugin mongodb-gridfs
-
-Configure:
-
-<big>Adding the setting you're file path/to/app/grails-app/config/Config.groovy</big>
- // host for mongodb
-    gridfsConfig.db.host = "localhost"
-    // db name
-    gridfsConfig.db.name = "myGridfs"
-    // collections for files
-    gridfsConfig.db.collection = "files"
-
-    // dir for icons
-    gridfsConfig.iconsdir = "images/icons"
-    // extensions  images for  thumbnail list
-    gridfsConfig.imagestype = ["jpg","gif","png","bmp"]
-    // allowedExtensions
-    gridfsConfig.allowedExtensions = ["jpg","gif","png","bmp","doc","rtf","zip"]
-    // tmp dir
-    gridfsConfig.tmpdir = "tmp/files"
-    // icon default
-    gridfsConfig.defaulticon = "images/icons/empty.png"
-    // file  iconconfig.groovy in images dir
-    // format Extension : filename
-    // Example:
-    //iconsOfExtension = [
-    //        pdf:"pdf.png",
-    //        doc:"word.png"]
-
-    //template for dirs  users thumbnails files
-    gridfsConfig.thumbconfig = [
-    publicdir:"tmp/imagesthumb/[idparent]",
-    x_size:128,
-    y_size:128
-    ]
-
-    // max bites size
-    gridfsConfig.maxSize = 2000000
-
-    // default errors controller
-    gridfsConfig.controllers.errorController = "gridfs"
-    gridfsConfig.controllers.errorAction  = "help"
-
-    // default controller for the success remove
-    gridfsConfig.controllers.successRemoveController = "gridfs"
-    gridfsConfig.controllers.successRemoveAction = "help"
-
-    // default controller for the success upload
-    gridfsConfig.controllers.successController =  "gridfs"
-    gridfsConfig.controllers.successAction  =  "help"
-
-    // controller for the access deny
-    gridfsConfig.accessController =  "gridfs"
-    gridfsConfig.accesssAction  =  "help"
-
-    //  class name  for access control
-    gridfsConfig.accessClass  =  "org.iglas.grails.utils.ExampleAccess"
-    //  method name  for access control
-    gridfsConfig.accessMethod  =  "check"
-
-    gridfsConfig.indexes  = [
-    "metadata.idparent":1,
-    "metadata.parentclass":1]
+   // dir for icons
+   gridfsConfig.iconsdir = "images/icons"
+   // extensions  images for  thumbnail list
+   gridfsConfig.imagestype = ["jpg","gif","png","bmp"]
+   // allowedExtensions
+   gridfsConfig.allowedExtensions = ["jpg","gif","png","bmp","doc","rtf","zip"]
+   // tmp dir
+   gridfsConfig.tmpdir = "tmp/files"
+   // icon default
+   gridfsConfig.defaulticon = "images/icons/empty.png"
+   // file  iconconfig.groovy in images dir
+   // format Extension : filename
+   // Example:
+   //iconsOfExtension = [
+   //        pdf:"pdf.png",
+   //        doc:"word.png"]
+   
+   //template for dirs  users thumbnails files
+   gridfsConfig.thumbconfig = [
+   publicdir:"tmp/imagesthumb/[idparent]",
+   x_size:128,
+   y_size:128
+   ]
+   
+   // max bites size
+   gridfsConfig.maxSize = 2000000
+   
+   // default errors controller
+   gridfsConfig.controllers.errorController = "gridfs"
+   gridfsConfig.controllers.errorAction  = "help"
+   
+   // default controller for the success remove
+   gridfsConfig.controllers.successRemoveController = "gridfs"
+   gridfsConfig.controllers.successRemoveAction = "help"
+   
+   // default controller for the success upload
+   gridfsConfig.controllers.successController =  "gridfs"
+   gridfsConfig.controllers.successAction  =  "help"
+   
+   // controller for the access deny
+   gridfsConfig.accessController =  "gridfs"
+   gridfsConfig.accesssAction  =  "help"
+   
+   //  class name  for access control
+   gridfsConfig.accessClass  =  "org.iglas.grails.utils.ExampleAccess"
+   //  method name  for access control
+   gridfsConfig.accessMethod  =  "check"
+   
+   gridfsConfig.indexes  = [
+   "metadata.idparent":1,
+   "metadata.parentclass":1]
 
 Using: 
 
